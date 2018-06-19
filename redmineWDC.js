@@ -63,15 +63,14 @@
 		var offset=0;
 		var total=101;
 		var tableData = [];
+		console.log("logging in as " + tableau.username)
 		do {
 			( function( captured_total ) {
 			$.ajax({dataType: "json",
 				type: "GET",
-				// Get all issues status_id=*
-				url: "https://" + tableau.connectionData + "/issues.json?",
+				url: "https://" + tableau.connectionData + "/issues.json",
 				async: false,
 				beforeSend: function (xhr) {
-					xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
 					xhr.setRequestHeader('Authorization', "Basic " + btoa(tableau.username+":"+tableau.password));
 				},
 				success: function(resp) {
