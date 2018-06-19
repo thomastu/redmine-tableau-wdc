@@ -52,7 +52,7 @@
 
 		var tableSchema = {
 			id: "redmineFeed",
-			alias: "Issues with state not closed",
+			alias: "All Issues",
 			columns: cols
 		};
 
@@ -68,7 +68,7 @@
 			$.ajax({dataType: "json",
 				type: "GET",
 				// Get all issues status_id=*
-				url: "https://" + tableau.connectionData + "/issues.json?status_id=*&limit=100&offset=" + offset,
+				url: "https://" + tableau.connectionData + "/issues.json?",
 				async: false,
 				beforeSend: function (xhr) {
 					xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
